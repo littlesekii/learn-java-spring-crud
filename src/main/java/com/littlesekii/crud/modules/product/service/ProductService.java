@@ -19,7 +19,7 @@ public class ProductService {
     }
 
     public List<Product> findAll() {
-        return repository.findAll();
+        return repository.findAllByActiveTrue();
     }
 
     public Product register(ProductDTO dto) {

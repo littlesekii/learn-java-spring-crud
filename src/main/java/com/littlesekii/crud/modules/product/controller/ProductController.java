@@ -49,7 +49,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> delete(@PathVariable @Valid UUID id) {
-        service.delete(id);
+        service.deactivate(id);
         return ResponseEntity.noContent().build();
     }
 }

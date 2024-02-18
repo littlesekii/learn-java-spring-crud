@@ -6,6 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 public record ProductDTO(@NotBlank String name, Double price) {
 
     public Product toEntity() {
-        return new Product(null, name, price);
+        return new Product(null, name, price, true);
     }
 }

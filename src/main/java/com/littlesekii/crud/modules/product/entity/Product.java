@@ -23,8 +23,7 @@ public class Product implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String name;
-
     private Double price;
+    private Boolean active;
 }

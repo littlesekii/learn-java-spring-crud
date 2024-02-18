@@ -1,6 +1,5 @@
 package com.littlesekii.crud.modules.product.service;
 
-import com.littlesekii.crud.modules.exceptions.EntityNotFoundException;
 import com.littlesekii.crud.modules.product.entity.Product;
 import com.littlesekii.crud.modules.product.entity.dto.ProductDTO;
 import com.littlesekii.crud.modules.product.repository.ProductRepository;
@@ -32,7 +31,7 @@ public class ProductService {
         Product product = repository.findById(id).orElseThrow();
         product.setName(dto.name());
         product.setPrice(dto.price());
-        return repository.save(product);
+        return product;
     }
 
     @Transactional
@@ -41,7 +40,8 @@ public class ProductService {
     }
 
     @Transactional
-    public void deactive(UUID id) {
-        repository.deleteById(id);
+    public void deactivate(UUID id) {
+        Product product = repository.findById(id).orElseThrow();
+        product.setActive(false);
     }
 }
